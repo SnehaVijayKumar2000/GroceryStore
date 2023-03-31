@@ -1,0 +1,38 @@
+<div class="center-card">
+    <mat-card class="customCard">
+        <div class="logo">
+            <img src="./assets/Images/logo.jpg" alt="" width="150">
+        </div>
+        <mat-card-title>Grocery Store</mat-card-title>
+        <mat-card-content>
+            <form #login="ngForm">
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <mat-label>Email</mat-label>
+                    <input required matInput name="email" ngModel>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput required [type]="hide ? 'password' : 'text'" name="password" ngModel>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <br>
+                <mat-error *ngIf="isError">Email or password is wrong.</mat-error>
+                <button mat-raised-button color="primary" type="submit" (click)="onSubmit(login)">Login</button>
+                <br>
+                <br>
+                <a [routerLink]="'/forgot-password'">I forgot my password</a>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <a mat-button [routerLink]="'/'">
+                <mat-icon>chevron_left</mat-icon>Home </a>
+            <a mat-button [routerLink]="'/signup'">No Account? Sign Up</a>
+        </mat-card-actions>
+        <mat-card-footer>
+            <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+        </mat-card-footer>
+    </mat-card>
+</div>

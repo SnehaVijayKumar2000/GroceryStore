@@ -1,0 +1,14 @@
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title><a [routerLink]="null">{{ item.name }}</a></mat-card-title>
+        <mat-card-subtitle><app-add-to-cart></app-add-to-cart></mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{item.photo_ref}}">
+    <mat-card-content>
+        <p>
+          {{item.discription}}
+        </p>
+      </mat-card-content>
+    <button mat-button>${{item.price}}</button>
+</mat-card>
