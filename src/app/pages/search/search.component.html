@@ -1,0 +1,20 @@
+
+<form class="example-form">
+  <div class="center">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <input matInput placeholder="Search Items" #searchText (keyup)="search(searchText.value)">
+  </mat-form-field>
+</div>
+</form>
+
+<ul class="flex-container">
+    <li *ngFor="let item of displayItems">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title><a mat-button [routerLink]="['/item', item.id]">{{ item.name }}</a></mat-card-title>
+                <mat-card-subtitle>${{item.price}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{item.photo_ref}}">
+        </mat-card>
+    </li>
+</ul>

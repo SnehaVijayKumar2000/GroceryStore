@@ -1,0 +1,48 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+h1 {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.mat-toolbar {
+    height: 7vh;
+}
+
+.mobileDoNotShow {
+    display: inherit;
+}
+
+.mobileShow {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .mobileDoNotShow {
+        display: none;
+    }
+    .mobileShow {
+        display: inherit;
+    }
+}
+
+.bottom-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+mat-sidenav {
+    width: min(400px, 100%);
+}
+
+.page {
+    min-height: 100vh;
+}
+
+.content {
+    margin: 0 10%;
+    padding: 6em;
+}

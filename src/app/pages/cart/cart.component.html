@@ -1,0 +1,77 @@
+<h1>Cart</h1>
+
+<div *ngIf="!isSuccess">
+    <mat-table #table [dataSource]='cartItems'>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.item.name }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.item.price}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="subtotal">
+            <mat-header-cell *matHeaderCellDef> Subtotal </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="remove">
+            <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-button (click)="removeFromCart(element)"><span class="material-icons">
+                    remove_circle_outline
+                    </span></button>
+                <button mat-button (click)="addToCart(element)"><span class="material-icons">
+                    add_circle_outline
+                    </span></button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+
+    <h1>Total: {{total}}</h1>
+
+    <h1>Address</h1>
+    <form #address="ngForm">
+        <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Address</mat-label>
+            <textarea matInput required name="address" ngModel></textarea>
+        </mat-form-field>
+        <table cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field appearance="fill">
+                        <mat-label>City</mat-label>
+                        <input matInput required name="city" ngModel>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Province</mat-label>
+                        <input matInput required name="province" ngModel>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Postal Code</mat-label>
+                        <input matInput required #postalCode name="postalCode" maxlength="6" ngModel>
+                        <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <button mat-raised-button color="primary" [disabled]="cartItems.length == 0" (click)="checkout(address)">Checkout</button>
+    </form>
+</div>
+<div *ngIf="isSuccess">
+    <h2>Your Transaction as been recorded.</h2>
+    <h2>Thank you for shopping with us.</h2>
+
+    <a mat-button [routerLink]="'/'">Go Home</a>
+</div>

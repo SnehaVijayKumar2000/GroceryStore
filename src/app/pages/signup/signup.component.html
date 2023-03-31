@@ -1,0 +1,90 @@
+<div class="center-card">
+    <mat-card class="customCard">
+        <form #signup="ngForm">
+            <mat-card-title>Sign Up</mat-card-title>
+            <mat-card-content>
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field appearance="fill">
+                                <mat-label>First Name</mat-label>
+                                <input matInput name="fname" ngModel>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput name="lname" ngModel>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput name="address" ngModel></textarea>
+                </mat-form-field>
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field appearance="fill">
+                                <mat-label>City</mat-label>
+                                <input matInput name="city" ngModel>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Province</mat-label>
+                                <input matInput name="province" ngModel>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Postal Code</mat-label>
+                                <input matInput #postalCode name="postalCode" maxlength="6" ngModel>
+                                <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input required matInput name="email" ngModel>
+                </mat-form-field>
+                <br>
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+
+                            <mat-form-field appearance="fill" style="width: 100%;">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" #password name="password" ngModel (keyup)="onPasswordChange(password.value)">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </td>
+                        <td style="width: 100%; position: relative" *ngIf="password.value.length > 0">
+                            <h2>Password Strength</h2>
+                            <mat-progress-bar [value]="value" [color]="color">
+                            </mat-progress-bar>
+                            <p>{{ text }}</p>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <mat-error *ngIf="isError">Error creating account. Please Try again.</mat-error>
+                <button type="submit" mat-raised-button color="primary" (click)="onSubmit(signup)">Sign Up</button>
+            </mat-card-content>
+        </form>
+        <mat-card-actions>
+            <a mat-button [routerLink]="'/'">
+                <mat-icon>chevron_left</mat-icon> Home </a>
+            <a mat-button [routerLink]="'/login'">Log in instead</a>
+        </mat-card-actions>
+        <mat-card-footer>
+            <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+        </mat-card-footer>
+    </mat-card>
+
+</div>

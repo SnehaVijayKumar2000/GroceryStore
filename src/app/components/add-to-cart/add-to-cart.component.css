@@ -1,0 +1,10 @@
+.addToCart {
+    width: 3em;
+    display: inline;
+    height: 500px;
+}
+
+input {
+    width: 5em;
+    height: fit-content;
+}

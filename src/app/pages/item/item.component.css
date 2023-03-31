@@ -1,0 +1,36 @@
+.item-Container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 500px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.itemImage {
+    flex: 0 1 60%;
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.itemcontent {
+    flex: 0 0 auto;
+}
+.example-card {
+    max-width: 300px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 12px;
+    
+}

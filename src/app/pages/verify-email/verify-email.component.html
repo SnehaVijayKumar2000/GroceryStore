@@ -1,0 +1,29 @@
+<div class="center-card" *ngIf="!isVerified">
+    <mat-card class="customCard">
+        <mat-card-title>Thanks for signing up!</mat-card-title>
+        <br>
+        <mat-card-content>
+            <p>Please verify your email to finish the sign up.</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <a mat-raised-button [routerLink]="'/'">
+                <mat-icon>chevron_left</mat-icon>Home </a>
+            <button mat-raised-button color="accent" (click)="sendVerificationEmail()">Resend Verification Email</button>
+            <button (click)="auth.logoutUser()" mat-raised-button color="accent" *ngIf="auth.isUserLoggedIn">Logout</button>
+
+        </mat-card-actions>
+    </mat-card>
+
+</div>
+<div class="center-card" *ngIf="isVerified">
+    <mat-card class="customCard">
+        <mat-card-title>All Set!</mat-card-title>
+        <mat-card-content>
+            <p>Your email has been verified.</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <a mat-raised-button [routerLink]="'/'">
+                <mat-icon>chevron_left</mat-icon>Home </a>
+        </mat-card-actions>
+    </mat-card>
+</div>
