@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.Category-Container {
+    list-style: none;
+    padding: 5px;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    align-items: center;
+}
+
+.Category-Container img {
+    list-style: none;
+    padding: 15px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.Category-Heading {
+    padding-left: 180px;
+    padding-top: 30px;
+}
+
+p {
+    font-size: 20px;
+    font-style: italic;
+}
+
+h1 {
+    align-items: center;
+    padding-left: 700;
+}
+
+.Social-Media-Container {
+    position: fixed;
+    right: 0px;
+    top: 150px;
+}
+
+.Btn-Container {
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 200;
+    border-style: hidden;
+}
+
+.customCard.mat-card {
+    margin: 2em auto;
+    padding: 50px;
+    transition: ease-in-out;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-container {
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 5rem;
+    /* Footer height */
+}
+
+.page-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
